@@ -12,8 +12,8 @@
 
 	<style>
 		img{
-			max-width: 50px;
-			max-height: 50px;
+			width: 50px;
+			height: 50px;
 			display: inline-block;
 			}
 		
@@ -33,8 +33,9 @@
 				<span class="pink">c</span>
 				<span class="green">h</span>
 				<span class="red">a</span><br>
-				<small>demo</small>
-			    </h1>
+				<small>gan based captcha </small>
+				</h1>
+				
 	        <form>
 	        	<div class="formData">
 		        	<div class="formDiv">
@@ -52,14 +53,15 @@
 					        	<input type="checkbox" id="checkForRobot">
 					        	<label for="checkForRobot"></label>
 				        	</div>
-				        	<span>I'm not a robot.</span>
+				        	<span>To submit, solve the captcha.</span>
 				        </div>
 			        </div>
 
 			        <div class="captchaDiv close">
-							
-						<br>
-						<div id="captcha"></div>
+
+						<div style="display: flex;
+						align-items: center;
+						justify-content: center;"><div id="captcha" ></div></div>	
 						<input type="text" id="check" value="">
 						<!-- <input type="button" id="verif"
 							onfocus="verifvalue_captcha();" on value="Verifier"> -->
@@ -69,7 +71,7 @@
 							</button>	  
 						<div id="captchaverif"></div>
 						<br>
-						<p div="relancecap" onclick="generate_captcha(8);" style="cursor: pointer;"> Reload ?</p>
+						<p div="relancecap" onclick="generate_captcha(8);" style="cursor: pointer; display: flex;align-items: center;justify-content: center"> Reload ?</p>
 						<br>
 						
 						<script>
