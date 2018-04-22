@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy Captcha</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Dosis:200,300,400'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+	<style>
+		img{
+			max-width: 50px;
+			max-height: 50px;
+			display: inline-block;
+			}
+		
+
+	</style>
+</head>
+
+<body>
+
+  <body>
+    	<div class="container">
+    		<h1>
+    			<span class="blue">G</span>
+    			<span class="red">a</span>
+    			<span class="purple">p</span>
+    			<span class="green">t</span>
+				<span class="pink">c</span>
+				<span class="green">h</span>
+				<span class="red">a</span><br>
+				<small>demo</small>
+			    </h1>
+	        <form>
+	        	<div class="formData">
+		        	<div class="formDiv">
+		        		<input type="text" required>
+			        	<label class="label">Your Name</label>
+			        </div>
+			        <div class="formDiv">
+			        	<input type="text" required>
+			        	<label class="label">Email</label>
+			        </div>
+
+			        <div class="formDiv">
+			        	<div class="checkboxDiv">
+				        	<div class="checkbox">
+					        	<input type="checkbox" id="checkForRobot">
+					        	<label for="checkForRobot"></label>
+				        	</div>
+				        	<span>I'm not a robot.</span>
+				        </div>
+			        </div>
+
+			        <div class="captchaDiv close">
+							
+						<br>
+						<div id="captcha"></div>
+						<input type="text" id="check" value="">
+						<!-- <input type="button" id="verif"
+							onfocus="verifvalue_captcha();" on value="Verifier"> -->
+							<button id="verif"
+							onfocus="verifvalue_captcha();" on value="Verifier">
+									<span class="text">SUBMIT</span>						
+							</button>	  
+						<div id="captchaverif"></div>
+						<br>
+						<p div="relancecap" onclick="generate_captcha(8);" style="cursor: pointer;"> Reload ?</p>
+						<br>
+						
+						<script>
+							// Réalisé dans le cadre de l'ISMV cours Informatique (devoir)
+							var Chaine;
+							var un = "img/1.png";
+							var de = "img/2.png";
+							var tr = "img/3.png";
+							var qu = "img/4.png";
+							var ci = "img/5.png";
+							var si = "img/6.png";
+							var se = "img/7.png";
+							var hu = "img/8.png";
+							var ne = "img/9.png";
+							var ze = "img/0.png";
+
+
+
+							function generate_captcha(limit){
+							doc = document.getElementById("captcha");
+							
+							var characteres = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0");
+							var characterev = new Array(un, de, tr, qu, ci, si, se, hu, ne, ze); // Tableau à 2 entrées, une en version variable et une en version texte, l'ordre DOIT etre respecté car une valeur dans 1 vaut une valeur dans l'autre
+							var Chainea = ''; // Réinitialisation des images
+							Chaine = ''; //Réinitioalisation de la chaine courante
+								for(i=0; i<limit; i++){ //rééxecute ce code autant de fois que limit
+									rando = Math.floor(Math.random() * characteres.length);//génere une valeur aléatoire par rapport à la taille des 2 tableaux
+									Chainea = Chainea + "<img src='" + characterev[rando] + "' alt='" + characteres[rando] + "'/>"; //met les images à la suites des autres, characteres valant pour la source
+								
+									Chaine = Chaine + characteres[rando]; // recupere la valeur à recuperer
+								}
+								doc.innerHTML = Chainea; // affiche les images
+							}
+							function verifvalue_captcha(){
+								inp = document.getElementById("check");
+								recu = inp.value.toLowerCase();
+								if(recu === Chaine){
+								reponse = "Correct !";
+								inp.style.border = '2px solid green';
+								inp.value = ""; //executer le code voulu ici si c'est réussis
+								}else{
+								reponse = "Wrong. Try Again !";
+								inp.style.border = '2px solid red';
+								inp.value = "";
+								generate_captcha(9);  
+								}
+								document.getElementById("captchaverif").innerHTML = reponse;
+							}
+							generate_captcha(8);
+							
+						</script>	
+						<br>
+			        </div>
+			    </div>
+
+		        <!-- <button id="submit">
+		        	<span class="text">Submit form</span>
+		        	<div class="spinner">
+						<div class="bounce1"></div>
+						<div class="bounce2"></div>
+						<div class="bounce3"></div>
+					</div>
+		        </button> -->
+	        </form>
+	    </div>
+        <script src="js/main.js"></script>
+    </body>
+  <script src='https://use.fontawesome.com/06a5f8e78b.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
