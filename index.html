@@ -12,8 +12,8 @@
 
 	<style>
 		img{
-			width: 50px;
-			height: 50px;
+			width: 100px;
+			height: 100px;
 			display: inline-block;
 			}
 		
@@ -71,7 +71,7 @@
 							</button>	  
 						<div id="captchaverif"></div>
 						<br>
-						<p div="relancecap" onclick="generate_captcha(8);" style="cursor: pointer; display: flex;align-items: center;justify-content: center"> Reload ?</p>
+						<p div="relancecap" onclick="generate_captcha(4);" style="cursor: pointer; display: flex;align-items: center;justify-content: center"> Reload ?</p>
 						<br>
 						
 						<script>
@@ -116,11 +116,11 @@
 								reponse = "Wrong. Try Again !";
 								inp.style.border = '2px solid red';
 								inp.value = "";
-								generate_captcha(9);  
+								generate_captcha(4);  
 								}
 								document.getElementById("captchaverif").innerHTML = reponse;
 							}
-							generate_captcha(8);
+							generate_captcha(4);
 							
 						</script>	
 						<br>
